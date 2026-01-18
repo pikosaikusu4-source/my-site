@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Mini Tools</h1>
+      <p class="sub">HTML / CSS / JS の練習用ミニサイト（GitHub Pages対応）</p>
+    </div>
+
+    <div class="actions">
+      <button id="themeBtn" class="btn">ダーク切替</button>
+      <a class="btn ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main class="grid">
+    <!-- Card: Text counter -->
+    <section class="card">
+      <h2>文字数カウント</h2>
+      <p class="hint">入力するとリアルタイムにカウントします。</p>
+      <textarea id="textInput" rows="6" placeholder="ここに文章を貼り付け"></textarea>
+
+      <div class="row">
+        <div class="pill">文字数: <span id="charCount">0</span></div>
+        <div class="pill">単語数(ざっくり): <span id="wordCount">0</span></div>
+        <button id="copyBtn" class="btn small">コピー</button>
+        <button id="clearBtn" class="btn small ghost">クリア</button>
+      </div>
+
+      <p id="copyMsg" class="msg" aria-live="polite"></p>
+    </section>
+
+    <!-- Card: Memo (localStorage) -->
+    <section class="card">
+      <h2>メモ（自動保存）</h2>
+      <p class="hint">ブラウザに保存されます（localStorage）。</p>
+      <input id="memoTitle" class="input" placeholder="タイトル（任意）" />
+      <textarea id="memoBody" rows="6" placeholder="メモを書く"></textarea>
+
+      <div class="row">
+        <div class="pill">最終保存: <span id="lastSaved">-</span></div>
+        <button id="exportBtn" class="btn small">TXT出力</button>
+        <button id="resetMemoBtn" class="btn small ghost">メモ削除</button>
+      </div>
+    </section>
+
+    <!-- Card: Password generator -->
+    <section class="card">
+      <h2>パスワード生成</h2>
+      <p class="hint">長さを指定して生成します。</p>
+
+      <div class="row wrap">
+        <label class="check"><input type="checkbox" id="useUpper" checked> 大文字</label>
+        <label class="check"><input type="checkbox" id="useLower" checked> 小文字</label>
+        <label class="check"><input type="checkbox" id="useNum" checked> 数字</label>
+        <label class="check"><input type="checkbox" id="useSym"> 記号</label>
+      </div>
+
+      <div class="row">
+        <label class="pill">
+          長さ:
+          <input id="pwLen" type="number" min="6" max="64" value="16" />
+        </label>
+        <button id="genBtn" class="btn small">生成</button>
+        <button id="pwCopyBtn" class="btn small ghost">コピー</button>
+      </div>
+
+      <input id="pwOut" class="input mono" readonly placeholder="ここに出ます" />
+      <p id="pwMsg" class="msg" aria-live="polite"></p>
+    </section>
+
+    <!-- Card: About -->
+    <section class="card">
+      <h2>公開メモ</h2>
+      <ul class="list">
+        <li>このページは <span class="mono">index.html / style.css / script.js</span> の3ファイルだけで動きます。</li>
+        <li>GitHub Desktopで <span class="mono">Commit → Push</span> すると、GitHub Pagesも更新されます。</li>
+        <li>VS Code の Live Server を使うとローカル確認が楽です。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="mono">© Mini Tools</span>
+    <span class="muted">GitHub Pagesで公開OK</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
